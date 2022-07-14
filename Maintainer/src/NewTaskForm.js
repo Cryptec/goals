@@ -12,6 +12,8 @@ class NewTaskForm extends Component {
     this.state = {
       task: '',
       done: 'false',
+      stichtag: '',
+      timeframe: '',
       count: 0
     }
   }
@@ -21,6 +23,22 @@ class NewTaskForm extends Component {
   return (
     <div className="container">
     <form onSubmit={this.handleSubmit.bind(this)}>
+      <input
+        type="text"
+        value={this.state.stichtag}
+        id='stichtag'
+        placeholder="stichtag"
+        onChange={this.handleChange.bind(this)}
+        required />
+
+      <input
+        type="text"
+        value={this.state.timeframe}
+        id='timeframe'
+        placeholder="timeframe"
+        onChange={this.handleChange.bind(this)}
+        required />
+
       <input 
          type="text" 
          value={this.state.task} 
@@ -43,6 +61,10 @@ class NewTaskForm extends Component {
 
     if (field === 'task') {
       this.setState({ task: event.target.value })
+    } else if (field === 'stichtag') {
+      this.setState({ stichtag: event.target.value })
+    } else if (field === 'timeframe') {
+      this.setState({ timeframe: event.target.value })
     } 
   }
   handleSubmit(event) {
@@ -55,11 +77,15 @@ class NewTaskForm extends Component {
       data: {
         task: this.state.task,
         done: this.state.done,
+        stichtag: this.state.stichtag,
+        timeframe: this.state.timeframe
       },
     }).then((response) => {
       if (response.data.answer === 'success') {
         this.setState({
-          task: ''
+          task: '',
+          stichtag: '',
+          timeframe: '',
         })
         console.log('Form sent')
       }

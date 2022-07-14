@@ -12,6 +12,8 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
         db.run(`CREATE TABLE Tasks (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             task text UNIQUE, 
+            stichtag text,
+            timeframe text,
             done text
             )`,
             (err) => {

@@ -13,11 +13,13 @@ router.post('/settask', function(req,res){
   var data = {
     task: req.body.task,
     done: req.body.done,
+    stichtag: req.body.stichtag,
+    timeframe: req.body.timeframe,
     id: req.body.id
 }
-  var params = [data.task, data.done, data.id]
+  var params = [data.task, data.done, data.stichtag, data.timeframe, data.id]
   db.serialize(()=>{
-      db.run('INSERT INTO Tasks (task, done, id) VALUES (?, ?, ?)', params, function(err){
+      db.run('INSERT INTO Tasks (task, done, stichtag, timeframe, id) VALUES (?, ?, ?, ?, ?)', params, function(err){
       if(err){
         res.send("Error encountered while updating");
         return res.status(400).json({ error: true });

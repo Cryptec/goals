@@ -12,6 +12,8 @@ class Task extends Component {
       task: '',
       done: '',
       id: '',
+      stichtag: '',
+      timeframe: '',
       count: 0,
       fetchtasks: []
     }
@@ -23,7 +25,7 @@ class Task extends Component {
       const fetchtasks = await response.json()
       this.setState({ fetchtasks })
       this.state.fetchtasks.map(task => {
-      this.setState({ done: task.done, task: task.task, id: task.id })
+      this.setState({ done: task.done, task: task.task, timeframe: task.timeframe, stichtag: task.stichtag, id: task.id })
       return this.handleCheck()
       })
     } else {
@@ -37,7 +39,7 @@ class Task extends Component {
       const fetchtasks = await response.json()
       this.setState({ fetchtasks })
       this.state.fetchtasks.map(task => {
-        this.setState({ done: task.done, task: task.task, id: task.id })
+        this.setState({ done: task.done, task: task.task, timeframe: task.timeframe, stichtag: task.stichtag, id: task.id })
         return this.handleCheck()
         })
     } else {
@@ -69,7 +71,7 @@ class Task extends Component {
            />
       </td>
       <td>
-        <span id={tasks.id} key={this.state.count} className={ taskdone ? 'task-done' : '' }>{tasks.task}</span>
+        <span id={tasks.id} key={this.state.count} className={ taskdone ? 'task-done' : '' }>{tasks.timeframe}{tasks.task}{tasks.stichtag}</span>
       </td>
       <td>
         <span style={{cursor: 'pointer'}} onClick={() => this.deleteTableRow(tasks.id)}> X </span>
@@ -143,11 +145,15 @@ class Task extends Component {
       data: {
         task: this.state.task,
         done: this.state.done,
+        stichtag: this.state.stichtag,
+        timeframe: this.state.timeframe
       },
     }).then((response) => {
       if (response.data.answer === 'success') {
         this.setState({
-          task: ''
+          task: '',
+          stichtag: '',
+          timeframe: ''
         })
         console.log('Form sent')
       }
