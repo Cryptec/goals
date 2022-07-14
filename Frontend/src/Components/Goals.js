@@ -15,6 +15,10 @@ class GoalElement extends Component {
             <div>
                 <div className='Goalfield'>
                    <p>1 Jahr</p>
+
+                   <div>
+                    
+                   </div>
                 </div>
             </div>
         )
