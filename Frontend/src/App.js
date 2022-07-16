@@ -4,7 +4,7 @@ import GoalElement from './Components/Goals';
 function App() {
   return (
     <div className="App">
-      <div className='GoalWrapper'>
+      <div>
         <GoalElement />
       </div>
     </div>

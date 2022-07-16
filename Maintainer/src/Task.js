@@ -135,9 +135,9 @@ class Task extends Component {
       })
     } 
   }
+
   handleSubmit(event) {
     event.preventDefault()
-    this.setState({ count: this.state.count + 1})
     axios({
       method: 'POST',
       url: `${API_ENDPOINT}/api/settask`,
@@ -148,7 +148,7 @@ class Task extends Component {
         stichtag: this.state.stichtag,
         timeframe: this.state.timeframe
       },
-    }).then((response) => {
+    }).then( async (response) => {
       if (response.data.answer === 'success') {
         this.setState({
           task: '',
@@ -156,6 +156,8 @@ class Task extends Component {
           timeframe: ''
         })
         console.log('Form sent')
+        await this.fetchTasks()
+        this.setState({count: this.state.count + 1})
       }
     })
   }

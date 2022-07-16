@@ -1,28 +1,116 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 import '../css/Goals.css'
+
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
+
 
 class GoalElement extends Component {
     constructor() {
         super();
         this.state = {
-            name: ''
+            isLoading: false,
+            isError: false,
+            goals: []
         };
     }
 
+
+    async componentDidMount() {
+      this.fetchGoals()
+    }
+
+    async fetchGoals() {
+        this.setState({ isLoading: true })
+        const response = await fetch(
+          `${API_ENDPOINT}/api/tasks`
+        )
+        if (response.ok) {
+          const goals = await response.json()
+          this.setState({ goals, isLoading: false })
+        } else {
+          this.setState({ isError: true, isLoading: false })
+        }
+      }
+
+      renderGoals = () => {
+    
+          const { isLoading, isError } = this.state
+    
+          if (isLoading) {
+            return <div>Loading..</div>
+          }
+          if (isError) {
+            return <div>Error..</div>
+          }
+    
+          return this.state.goals.map((goal) => {
+    
+          const taskdone = goal.done === 'true'
+
+          return (
+            <div key={goal.id} className={ taskdone ? 'GoalfieldDone' : 'Goalfield' } onClick={() => this.setArchievement(goal.id, goal.done)}>
+              <p><b style={{borderBottom: '1px solid'}}>{goal.timeframe}</b></p>
+              
+               <div style={{borderBottom: '1px solid'}}>{goal.task}</div>
+            </div>
+          )
+          })
+        }
+
     render () {
         return (
-            <div>
-                <div className='Goalfield'>
-                   <p>1 Jahr</p>
-
-                   <div>
+            <div className='GoalWrapper'>
                     
-                   </div>
-                </div>
+                    {this.renderGoals()}
+                  
             </div>
         )
     }
+
+    setArchievement(id, done) {
+
+      if (done === "false") {
+        axios({
+          method: 'POST',
+          url: `${API_ENDPOINT}/api/setstate/${id}`,
+          headers: { 'Content-Type': 'application/json' },
+          data: {
+            id: id,
+            done: 'true',
+          },
+        }).then((response) => {
+          if (response.data.answer === 'success') {
+            this.setState({
+              task: ''
+            })
+            console.log('Form sent')
+            this.fetchGoals()
+          }
+        })
+      } else if (done === "true") { 
+        axios({
+          method: 'POST',
+          url: `${API_ENDPOINT}/api/setstate/${id}`,
+          headers: { 'Content-Type': 'application/json' },
+          data: {
+            id: id,
+            done: 'false',
+          },
+        }).then((response) => {
+          if (response.data.answer === 'success') {
+            this.setState({
+              task: ''
+            })
+            console.log('Form sent')
+            this.fetchGoals()
+          }
+        })
+      } 
+    }
+
 }
 
 export default GoalElement
