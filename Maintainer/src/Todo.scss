@@ -31,6 +31,15 @@ body {
         height: 30px;
         width: 100%;
         border: 1px solid #ccc;
+        padding: 5px;
+        outline-color: #42383B;
+        font-size: 14pt;
+      }
+
+      textarea[type="text"] {
+        height: 30px;
+        width: 100%;
+        border: 1px solid #ccc;
         border-radius: 5px 0 0 5px;
         padding: 5px;
         outline-color: #42383B;

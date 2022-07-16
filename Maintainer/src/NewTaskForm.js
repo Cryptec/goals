@@ -23,6 +23,16 @@ class NewTaskForm extends Component {
   return (
     <div className="container">
     <form onSubmit={this.handleSubmit.bind(this)}>
+
+    <textarea 
+         type="text" 
+         value={this.state.task} 
+         id='task'
+         rows='4'
+         placeholder="New task..." 
+         onChange={this.handleChange.bind(this)}
+         required 
+      />
       <input
         type="text"
         value={this.state.stichtag}
@@ -38,14 +48,6 @@ class NewTaskForm extends Component {
         placeholder="timeframe"
         onChange={this.handleChange.bind(this)}
         required />
-
-      <input 
-         type="text" 
-         value={this.state.task} 
-         id='task'
-         placeholder="New task..." 
-         onChange={this.handleChange.bind(this)}
-         required />
       <button>Add</button>
     </form>
 

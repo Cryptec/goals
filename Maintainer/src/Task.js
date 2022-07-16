@@ -71,10 +71,10 @@ class Task extends Component {
            />
       </td>
       <td>
-        <span id={tasks.id} key={this.state.count} className={ taskdone ? 'task-done' : '' }>{tasks.timeframe}{tasks.task}{tasks.stichtag}</span>
+        <span id={tasks.id} key={this.state.count} className={ taskdone ? 'task-done' : '' }>{tasks.timeframe}&nbsp;&nbsp;  {tasks.task}&nbsp;&nbsp;  {tasks.stichtag}</span>
       </td>
       <td>
-        <span style={{cursor: 'pointer'}} onClick={() => this.deleteTableRow(tasks.id)}> X </span>
+        <span style={{cursor: 'pointer'}} onClick={() => this.deleteTableRow(tasks.id)}>&nbsp; <b>&#10005;</b> &nbsp; </span>
       </td>
     </tr>
   )
