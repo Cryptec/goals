@@ -26,7 +26,6 @@ class ToggleSwitch extends Component {
         
     await this.getCurrentTheme()
     const root = document.querySelector(':root');
-    this.setState({selected: this.state.theme})
     return root.setAttribute('color-scheme', `${this.state.theme}`);
 
 }
@@ -35,11 +34,12 @@ getCurrentTheme = () => {
  if (localStorage.getItem('color-scheme') === null ) {
      //localStorage.setItem('color-scheme', 'dark')
      let themestate = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-     this.setState({theme: themestate})
+     this.setState({theme: themestate, selected: 'default'})
      console.log(themestate);
      return themestate
  } else {
-     this.setState({theme: localStorage.getItem('color-scheme')})
+     this.setState({theme: localStorage.getItem('color-scheme'), 
+     selected: localStorage.getItem('color-scheme')})
  }
 }
 

@@ -11,7 +11,7 @@
 }
 
 .GoalfieldDone {
-    border: 2px solid gray;
+    border: 2px solid gold;
     color: gray;
     width: 300px;
     height: 400px;
@@ -31,23 +31,3 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
-
-/* themetoggle */
-
-.switch-toggle {
-    float: left;
-    background-color: #242729;
- }
- .switch-toggle input {
-   position: absolute;
-   opacity: 0;
- }
- .switch-toggle input + label {
-   padding: 7px;
-   float:left;
-   color: #fff;
-   cursor: pointer;
- }
- .switch-toggle input:checked + label {
-   background-color: green;
- }
