@@ -1,6 +1,5 @@
 import './App.css';
 import GoalElement from './Components/Goals';
-import Themes from './Components/Theme'
 import ToggleSwitch from './Components/Toggle';
 
 function App() {
