@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --text-light: black;
+  --background-light: white;
+
+  --text-dark: white;
+  --background-dark: #262254;
+}
+
+@media (prefers-color-scheme: dark) {
+ :root {
+   --text: var(--text-dark);
+   --background: var(--background-dark);
+ }
+}
+
+@media(prefers-color-scheme: light){
+ :root {
+   --text: var(--text-light);
+   --background: var(--background-light);
+ }
+}
+
+[color-scheme="dark"]{
+ --text: var(--text-dark);
+ --background: var(--background-dark);
+}
+
+[color-scheme="light"] {
+ --text: var(--text-light);
+ --background: var(--background-light);
+}

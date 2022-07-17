@@ -21,7 +21,7 @@ class NewTaskForm extends Component {
   render() {
 
   return (
-    <div className="container">
+    <div className='container'>
     <form onSubmit={this.handleSubmit.bind(this)}>
 
     <textarea 
@@ -33,6 +33,7 @@ class NewTaskForm extends Component {
          onChange={this.handleChange.bind(this)}
          required 
       />
+      <br></br>
       <input
         type="text"
         value={this.state.stichtag}

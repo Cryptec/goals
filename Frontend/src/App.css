@@ -1,6 +1,6 @@
 .App {
-  background-color: #262254;
-  color: white;
+  background-color: var(--background);
+  color: var(--text);
   display: flex;
   justify-content: center;
   padding: 150px;

@@ -51,11 +51,15 @@ class GoalElement extends Component {
           const taskdone = goal.done === 'true'
 
           return (
+            
             <div key={goal.id} className={ taskdone ? 'GoalfieldDone' : 'Goalfield' } onClick={() => this.setArchievement(goal.id, goal.done)}>
-              <p><b style={{borderBottom: '1px solid'}}>{goal.timeframe}</b></p>
-              
-               <div style={{borderBottom: '1px solid'}}>{goal.task}</div>
+              <p><b style={{borderBottom: '1px solid', fontSize: '2em'}}>{goal.timeframe}</b></p>
+              <br></br>
+               <div style={{whiteSpace: 'pre-wrap'}}>{goal.task}</div>
+               <br></br>
+               <p style={{borderTop: '1px solid', marginTop: 'auto' }}>Stichtag: <b>{goal.stichtag}</b></p>
             </div>
+
           )
           })
         }
