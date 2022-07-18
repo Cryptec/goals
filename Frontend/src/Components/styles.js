@@ -5,7 +5,7 @@ export const Switch = styled.div`
   position: relative;
   height: 26px;
   width: 135px;
-  background-color: #e4e4e4;
+  background-color: var(--toggle-switch-background);
   border-radius: 13px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 `;
@@ -22,7 +22,7 @@ export const SwitchSelection = styled.span`
   left: 0px;
   width: 45px;
   height: 26px;
-  background: #216BA5;
+  background: var(--toggle-switch);
   border-radius: 13px;
   transition: left 0.25s ease-out;
 `;
@@ -34,7 +34,7 @@ export const SwitchLabel = styled.label`
   width: 45px;
   line-height: 26px;
   font-size: 11px;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--toggle-switchlabel);
   text-align: center;
   cursor: pointer;
 

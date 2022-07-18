@@ -15,15 +15,24 @@ code {
 :root {
   --text-light: black;
   --background-light: white;
+  --toggle-switch-light: #216BA5;
+  --toggle-switch-background-light: #e4e4e4;
+  --toggle-switchlabel-light: rgba(0, 0, 0, 0.6);
 
   --text-dark: white;
-  --background-dark: #262254;
+  --background-dark: #19163d;
+  --toggle-switch-dark: #216BA5;
+  --toggle-switch-background-dark: rgb(52, 52, 52);
+  --toggle-switchlabel-dark: rgba(255, 255, 255, 0.6);
 }
 
 @media (prefers-color-scheme: dark) {
  :root {
    --text: var(--text-dark);
    --background: var(--background-dark);
+   --toggle-switch: var(--toggle-switch-dark);
+   --toggle-switch-background: var(--toggle-switch-background-dark);
+   --toggle-switchlabel: var(var(--toggle-switchlabel-dark));
  }
 }
 
@@ -31,15 +40,24 @@ code {
  :root {
    --text: var(--text-light);
    --background: var(--background-light);
+   --toggle-switch: var(--toggle-switch-light);
+   --toggle-switch-background: var(--toggle-switch-background-light);
+   --toggle-switchlabel: var(var(--toggle-switchlabel-light));
  }
 }
 
 [color-scheme="dark"]{
  --text: var(--text-dark);
  --background: var(--background-dark);
+ --toggle-switch: var(--toggle-switch-dark);
+ --toggle-switch-background: var(--toggle-switch-background-dark);
+ --toggle-switchlabel: var(var(--toggle-switchlabel-dark));
 }
 
 [color-scheme="light"] {
  --text: var(--text-light);
  --background: var(--background-light);
+ --toggle-switch: var(--toggle-switch-light);
+ --toggle-switch-background: var(--toggle-switch-background-light);
+ --toggle-switchlabel: var(var(--toggle-switchlabel-light));
 }
