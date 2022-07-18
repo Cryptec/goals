@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { Switch, SwitchLabel, SwitchRadio, SwitchSelection } from './styles.js';
 
 const titleCase = str =>
@@ -46,6 +45,7 @@ getCurrentTheme = () => {
 loadThemeLight = async () => {
 
          this.setState({ theme: 'light' })
+         await localStorage.removeItem('color-scheme')
          localStorage.setItem('color-scheme', 'light')
          const root = document.querySelector(':root');
          root.setAttribute('color-scheme', `${this.state.theme}`);
@@ -55,6 +55,7 @@ loadThemeLight = async () => {
 loadThemeDark = async () => {
 
          this.setState({ theme: 'dark' })
+         await localStorage.removeItem('color-scheme')
          localStorage.setItem('color-scheme', 'dark')
          const root = document.querySelector(':root');
          root.setAttribute('color-scheme', `${this.state.theme}`);
@@ -62,7 +63,7 @@ loadThemeDark = async () => {
 }
 
 setDefaultTheme = async () => {
-         localStorage.removeItem('color-scheme')
+         await localStorage.removeItem('color-scheme')
          this.setState({theme: ''})
          this.setState({count: this.state.count + 1})
 }
@@ -80,10 +81,13 @@ toggleTheme = () => {
     this.setState({ selected: val });
     if (val === "light") { 
         this.loadThemeLight()
+        this.setState({count: this.state.count + 1})
     } else if ( val === "dark") {
         this.loadThemeDark()
+        this.setState({count: this.state.count + 1})
     } else {
         this.setDefaultTheme()
+        this.setState({count: this.state.count + 1})
     }
   };
 
@@ -96,17 +100,19 @@ toggleTheme = () => {
   render() {
     const { selected } = this.state;
     return (
+      <div>
       <Switch>
         {this.props.values.map(val => {
           return (
             <span>
               <ConcealedRadio value={val} selected={selected} />
-              <ClickableLabel title={val} onChange={this.handleChange} />
+              <ClickableLabel title={val} onChange={this.handleChange.bind(this)} />
             </span>
           );
         })}
         <SwitchSelection style={this.selectionStyle()} />
       </Switch>
+      </div>
     );
   }
 }
