@@ -68,16 +68,8 @@ setDefaultTheme = async () => {
          this.setState({count: this.state.count + 1})
 }
 
-toggleTheme = () => {
- const theme = this.state.theme
- if (theme === 'dark') {
-     this.loadThemeLight();
- } else {
-     this.loadThemeDark()
- }
-}
 
-  handleChange = val => {
+handleChange = val => {
     this.setState({ selected: val });
     if (val === "light") { 
         this.loadThemeLight()
