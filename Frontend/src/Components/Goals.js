@@ -22,8 +22,8 @@ class GoalElement extends Component {
       this.fetchGoals()
       sessionStorage.removeItem("scrollPosition");
     }
-    async componentDidUpdate() {
-      await this.handleScrollPosition()
+    componentDidUpdate() {
+      this.handleScrollPosition()
     }
 
   // handle scroll position after content load
