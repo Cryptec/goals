@@ -22,3 +22,5 @@ jobs:
         with:
           branch: gh-pages
           folder: ./Frontend/build
+        env: # Or as an environment variable
+        credentials: ${{ secrets.REACT_APP_API_ENDPOINT }}
