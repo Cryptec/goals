@@ -2,6 +2,8 @@ name: Build and Deploy
 on: [push] # defaults to master
 permissions:
   contents: write
+defaults:
+    working-directory: Frontend
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -11,11 +13,11 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          cd Frontend && yarn install
-          cd Frontend && yarn run-script build
+          yarn install
+          yarn run-script build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: /Frontend/build
+          folder: build
