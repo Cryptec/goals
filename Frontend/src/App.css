@@ -3,5 +3,5 @@
   color: var(--text);
   display: flex;
   justify-content: center;
-  padding: 150px;
+  min-height: 100vh;
 }

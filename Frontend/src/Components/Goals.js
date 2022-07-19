@@ -20,7 +20,19 @@ class GoalElement extends Component {
 
     async componentDidMount() {
       this.fetchGoals()
+      sessionStorage.removeItem("scrollPosition");
     }
+    async componentDidUpdate() {
+      await this.handleScrollPosition()
+    }
+
+  // handle scroll position after content load
+  handleScrollPosition = () => {
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition));
+    }
+  };
 
     async fetchGoals() {
         this.setState({ isLoading: true })
@@ -87,9 +99,7 @@ class GoalElement extends Component {
           },
         }).then((response) => {
           if (response.data.answer === 'success') {
-            this.setState({
-              task: ''
-            })
+            sessionStorage.setItem("scrollPosition", window.pageYOffset);
             console.log('Form sent')
             this.fetchGoals()
           }
@@ -105,9 +115,7 @@ class GoalElement extends Component {
           },
         }).then((response) => {
           if (response.data.answer === 'success') {
-            this.setState({
-              task: ''
-            })
+            sessionStorage.setItem("scrollPosition", window.pageYOffset);
             console.log('Form sent')
             this.fetchGoals()
           }
