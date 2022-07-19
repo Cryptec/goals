@@ -11,11 +11,11 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          yarn install
-          yarn run-script build
+          cd Frontend && yarn install
+          cd Frontend && yarn run-script build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: build
+          folder: /Frontend/build
