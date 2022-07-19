@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        env:
+          credentials: ${{ secrets.REACT_APP_API_ENDPOINT }}
 
       - name: Install and Build 🔧
         run: |
@@ -22,5 +24,3 @@ jobs:
         with:
           branch: gh-pages
           folder: ./Frontend/build
-        env:
-        credentials: ${{ secrets.REACT_APP_API_ENDPOINT }}
