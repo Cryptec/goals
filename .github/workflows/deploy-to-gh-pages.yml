@@ -11,10 +11,11 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
         env:
           credentials: ${{ secrets.REACT_APP_API_ENDPOINT }}
 
-      - name: Install and Build 🔧
         run: |
           yarn install
           yarn build
