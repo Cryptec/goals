@@ -2,7 +2,9 @@ name: Build and Deploy
 on: [push] # defaults to master
 permissions:
   contents: write
-working-directory: Frontend
+defaults:
+  run:
+    working-directory: ./Frontend
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
