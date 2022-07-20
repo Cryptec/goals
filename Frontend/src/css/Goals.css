@@ -1,7 +1,7 @@
 .Goalfield {
     border: 2px solid var(--text);
-    width: 300px;
-    height: 400px;
+    width: 280px;
+    height: 380px;
     border-radius: 30px;
     flex-direction: column;
     display: flex;
@@ -13,8 +13,8 @@
 .GoalfieldDone {
     border: 2px solid gold;
     color: gray;
-    width: 300px;
-    height: 400px;
+    width: 280px;
+    height: 380px;
     border-radius: 30px;
     flex-direction: column;
     display: flex;
@@ -34,10 +34,10 @@
 
 @media only screen and (max-width: 768px) {
   .Goalfield {
-    margin: 90px 35px 35px 35px ;
+    margin: 45px 35px 45px 35px ;
 }
 
 .GoalfieldDone {
-    margin: 90px 35px 35px 35px ;
+    margin: 45px 35px 45px 35px ;
 }
 }
