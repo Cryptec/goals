@@ -52,10 +52,10 @@ class GoalElement extends Component {
           const { isLoading, isError } = this.state
     
           if (isLoading) {
-            return <div>Loading..</div>
+            return <div>Loading.. </div>
           }
           if (isError) {
-            return <div>Error..</div>
+            return <div>Error.. </div>
           }
     
           return this.state.goals.map((goal) => {
