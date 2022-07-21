@@ -5,7 +5,10 @@ import ToggleSwitch from './Components/Toggle';
 function App() {
   return (
     <div className="App">
-      <div style={{ position: 'absolute', top: '20px', right: '20px'}}>
+    <div className="bar">
+      
+    </div>
+      <div className='toggleSwitch'>
       
       <ToggleSwitch values={['light', 'default', 'dark']} selected="default" />
       </div>

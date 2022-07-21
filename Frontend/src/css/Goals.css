@@ -27,6 +27,7 @@
     min-height: calc(100vh - 270px);
     align-content: space-around;
     justify-content: center;
+    padding-top: 25px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -34,10 +35,14 @@
 
 @media only screen and (max-width: 768px) {
   .Goalfield {
-    margin: 45px 35px 45px 35px ;
+    margin: 35px 35px 45px 35px ;
 }
 
-.GoalfieldDone {
-    margin: 45px 35px 45px 35px ;
+  .GoalfieldDone {
+    margin: 35px 35px 45px 35px ;
 }
+
+  .GoalWrapper {
+    padding-top: 50px;
+  }
 }

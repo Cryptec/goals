@@ -7,8 +7,31 @@
   overflow-x: hidden;
 }
 
+.bar {
+    display: none;
+}
+
+.toggleSwitch {
+    position: absolute; 
+    top: 20px; 
+    right: 20px;
+}
+
 @media only screen and (max-width: 768px) {
   .App {
     padding-top: 50px;
-}
+  }
+  .bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: var(--background);
+    height: env(safe-area-inset-top);
+    z-index: 4;
+    display: flex;
+  }
+  .toggleSwitch {
+    top: 60px;
+  }
 }
